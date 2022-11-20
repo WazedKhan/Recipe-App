@@ -132,7 +132,7 @@ class PrivateRecipeApiTest(TestCase):
         self.assertEqual(recipe.link, original_link)
         self.assertEqual(recipe.user, self.user)
 
-    def text_full_update_recipe(self):
+    def test_full_update_recipe(self):
         """Test full update of recipe"""
         recipe = create_recipe(
             user=self.user,
@@ -172,7 +172,7 @@ class PrivateRecipeApiTest(TestCase):
         recipe.refresh_from_db()
         self.assertEqual(recipe.user, self.user)
 
-    def text_delete_recipe(self):
+    def test_delete_recipe(self):
         """Test deleting recipe"""
         recipe = create_recipe(
             user=self.user
