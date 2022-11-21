@@ -73,6 +73,7 @@ class Tag(models.Model):
 
 
 class Ingredient(models.Model):
+    """Ingredient model for recipe"""
     name = models.CharField(max_length=255)
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
