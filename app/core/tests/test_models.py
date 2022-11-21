@@ -9,6 +9,11 @@ from django.test import TestCase
 from core import models
 
 
+def create_user(email='user@example.com', password='user123pass'):
+    """Helper function for creating user for test case"""
+    return get_user_model().objects.create_user(email, password)  # type: ignore # noqa
+
+
 class ModelTests(TestCase):
     """Test models class"""
 
@@ -68,3 +73,10 @@ class ModelTests(TestCase):
             description='Sample Recipe Description'
         )
         self.assertEqual(str(recipe), recipe.title)
+
+    def test_create_tag(self):
+        """Test creating a tag is successful"""
+        user = create_user()
+        tag = models.Tag.objects.create(user=user, name='tag1')
+
+        self.assertEqual(str(tag), tag.name)  # type: ignore
