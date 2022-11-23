@@ -1,7 +1,7 @@
 """
 Views for the recipe app
 """
-from drf_spectacular.utils import (
+from drf_spectacular.utils import (  # type: ignore
     extend_schema_view, extend_schema,
     OpenApiParameter, OpenApiTypes
 )
